@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbbe47e915eda54cb82ceec31de8eb6, type: 3}
+  m_Name: CubeConfigHolder
+  m_EditorClassIdentifier: 
+  _cubeSprites:
+  - {fileID: -516064255, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: -1112210233, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 1977850046, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 1536856391, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: -1750479997, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: -1757731514, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 915389266, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: -2116085914, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 747341636, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 1191015888, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 2085862681, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 739505244, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: -723615507, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: -1953579248, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 1188060956, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 1354472825, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 1464291009, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: -574773700, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 1995337352, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  - {fileID: 2052724186, guid: 2f01693d1724edf49ae309758f36ec49, type: 3}
+  _defaultConfig:
+    Id: 
+    Sprite: {fileID: 0}
+    AdditionalColor: {r: 0, g: 0, b: 0, a: 0}
+    PlaceCondition: 1
