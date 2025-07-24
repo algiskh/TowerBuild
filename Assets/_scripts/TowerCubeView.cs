@@ -45,7 +45,6 @@ public class TowerCubeView : MonoBehaviour, IPointerDownHandler
 	{
 		var grabOffset = _rt.CalculateGrabOffset(eventData);
 
-		Debug.Log(eventData.pointerCurrentRaycast.gameObject.name);
 		_cubeView.OnSelect(grabOffset, _dragContainer);
 		_inputManager.TryToSelectView(_cubeView);
 	}
@@ -94,14 +93,14 @@ public class TowerCubeView : MonoBehaviour, IPointerDownHandler
 		_tween?.Kill();
 		_cubeView.ResetScale();
 		_cubeView.SetState(CubeState.Dumping);
+		_cubeView.SetTransparent(false);
 
 		var maskRect = mask.rectTransform;
 		var maskCenter = maskRect.rect.center;
 
-		var anchoredTarget = maskRect.GetAnchoredPositionInOtherRect(_cubeView.RT.parent as RectTransform);
+		var anchoredTarget = maskRect.GetAnchoredPositionInOtherRect(_dragContainer);
 
 		_cubeView.RT.anchoredPosition = position;
-		Debug.Log($"anchoredTarget {anchoredTarget}");
 
 		_tween = _cubeView.RT.DOAnchorPos(anchoredTarget, JUMP_DURATION).SetEase(Ease.InOutSine).OnComplete(() =>
 		{

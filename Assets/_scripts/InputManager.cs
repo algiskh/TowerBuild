@@ -52,7 +52,6 @@ public class InputManager : IInputManager
 	{
 		if (!IsTouch)
 		{
-			Debug.Log($"No touch. Failed to select");
 			return;
 		}
 		UnityEngine.Debug.Log($"{view.Config.Id} selected");
