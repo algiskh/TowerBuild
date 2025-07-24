@@ -1,8 +1,6 @@
 
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public static class UIExtensions
 {
@@ -53,7 +51,7 @@ public static class UIExtensions
 	public static bool IsRectOverlapping(this RectTransform fromRect, RectTransform toRect)
 	{
 		var localPt = fromRect.GetPositionInOtherRectTranform(toRect);
-		Debug.Log(localPt);
+
 		var size = toRect.rect.size;
 		var pivot = toRect.pivot;
 
@@ -109,13 +107,11 @@ public static class UIExtensions
 			out var localPointInSelf
 		);
 
-		// Центр прямоугольника в локальных координатах (относительно pivot)
 		Vector2 centerLocal = new Vector2(
 			(0.5f - rectTransform.pivot.x) * rectTransform.rect.width,
 			(0.5f - rectTransform.pivot.y) * rectTransform.rect.height
 		);
 
-		// Итог: смещение точки клика относительно центра
 		return centerLocal - localPointInSelf;
 	}
 

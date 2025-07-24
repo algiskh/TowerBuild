@@ -106,7 +106,7 @@ public class TowerCubeView : MonoBehaviour, IPointerDownHandler
 			_cubeView.RT.SetParent(maskRect, worldPositionStays: true);
 			_cubeView.RT.anchoredPosition = position;
 			_cubeView.RT.anchoredPosition = maskCenter;
-
+			Debug.Log($"Cube setting pos {position} before anim");
 			var downTarget = maskCenter + Vector2.down * (_cubeView.RT.rect.height * 1.5f);
 
 			var seq = DOTween.Sequence();

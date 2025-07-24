@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-public class SlotView : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class SlotView : MonoBehaviour, IPointerDownHandler
 {
 	[Inject] private IInputManager _inputManager;
 	[Inject(Id = "dragContainer")] private RectTransform _dragContainer;
@@ -25,10 +25,5 @@ public class SlotView : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 		Debug.Log(eventData.pointerCurrentRaycast.gameObject.name);
 		_cubeView.OnSelect(grabOffset, _dragContainer);
 		_inputManager.TryToSelectView(_cubeView);
-	}
-
-	public void OnPointerUp(PointerEventData eventData)
-	{
-		//_inputManager.OnDeselectView(_cubeView);
 	}
 }

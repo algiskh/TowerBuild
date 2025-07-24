@@ -62,6 +62,7 @@ public class CubeView : MonoBehaviour
 
 	public void OnDeselect()
 	{
+		Debug.Log($"Cube OnDeselect");
 		_rectTransform.SetParent(_originalParent, false);
 		SetTransparent(false);
 		_rectTransform.anchoredPosition = _originalPos;

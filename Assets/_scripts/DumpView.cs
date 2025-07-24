@@ -1,9 +1,7 @@
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using Zenject;
-using System.Collections.Generic;
 
 public class DumpView : MonoBehaviour
 {

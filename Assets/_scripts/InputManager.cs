@@ -1,11 +1,5 @@
-using Localization;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
-using Unity.VisualScripting;
-using Unity.VisualScripting.FullSerializer;
-using UnityEditor;
 using UnityEngine;
 using Zenject;
 
@@ -35,7 +29,6 @@ public class InputManager : IInputManager
 		Observable.EveryLateUpdate()
 			.Subscribe(_ =>
 				{
-					//Debug.Log($"Has touch {IsTouch}");
 					if (!IsTouch && _currentCubeView.Value != null)
 					{
 						OnDeselectView(_currentCubeView.Value);
