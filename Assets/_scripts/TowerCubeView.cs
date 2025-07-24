@@ -93,20 +93,21 @@ public class TowerCubeView : MonoBehaviour, IPointerDownHandler
 	{
 		_tween?.Kill();
 		_cubeView.ResetScale();
+		_cubeView.SetState(CubeState.Dumping);
 
 		var maskRect = mask.rectTransform;
 		var maskCenter = maskRect.rect.center;
-		var anchoredTarget = maskRect.TransformPointToOtherRect(maskCenter, _rt);
 
-		var originalParent = _cubeView.RT.parent;
-		var originalAnchored = _cubeView.RT.anchoredPosition;
+		var anchoredTarget = maskRect.GetAnchoredPositionInOtherRect(_cubeView.RT.parent as RectTransform);
+
+		_cubeView.RT.anchoredPosition = position;
+		Debug.Log($"anchoredTarget {anchoredTarget}");
 
 		_tween = _cubeView.RT.DOAnchorPos(anchoredTarget, JUMP_DURATION).SetEase(Ease.InOutSine).OnComplete(() =>
 		{
 			_cubeView.RT.SetParent(maskRect, worldPositionStays: true);
-			_cubeView.RT.anchoredPosition = position;
 			_cubeView.RT.anchoredPosition = maskCenter;
-			Debug.Log($"Cube setting pos {position} before anim");
+
 			var downTarget = maskCenter + Vector2.down * (_cubeView.RT.rect.height * 1.5f);
 
 			var seq = DOTween.Sequence();
@@ -120,5 +121,7 @@ public class TowerCubeView : MonoBehaviour, IPointerDownHandler
 			_tween = seq;
 		});
 	}
+
 	#endregion
 }
+

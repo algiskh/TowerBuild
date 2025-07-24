@@ -59,10 +59,9 @@ public class TowerManager : ITowerManager, IInitializable
 		{
 			if (cube.View == view)
 			{
-				Debug.Log($"Dumping cube {view.Config.Id}");
 				_cubes.Remove(cube);
 				cube.PlayDumpAnimation(() => _cubesPool.Push(cube), position, mask);
-				_gameLog.SetMessage("CUBE_DUMPED".Replace("*", view.Config.Id.ToString()));
+				_gameLog.SetMessage("CUBE_DUMPED");
 				break;
 			}
 		}
@@ -80,8 +79,6 @@ public class TowerManager : ITowerManager, IInitializable
 		{
 			var cube = _cubes[i];
 
-			Debug.Log($"Checking {cube.Config.Id} cube.RT.anchoredPosition.y {cube.RT.anchoredPosition.y} currentY {currentY}");
-
 			if (Mathf.Abs(cube.RT.anchoredPosition.y - currentY) > 0.01f)
 			{
 				DOTween.Kill(cube.RT);
@@ -90,7 +87,6 @@ public class TowerManager : ITowerManager, IInitializable
 			}
 			currentY += CubeHeight;
 		}
-		Debug.Log($"Cubes left : {_cubes.Count}, last Y position: {currentY}");
 	}
 
 	private bool FulfillCondition(CubeView view)

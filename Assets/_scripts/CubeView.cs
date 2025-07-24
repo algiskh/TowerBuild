@@ -62,6 +62,11 @@ public class CubeView : MonoBehaviour
 
 	public void OnDeselect()
 	{
+		if (CubeState == CubeState.Dumping)
+		{
+			return;
+		}
+
 		Debug.Log($"Cube OnDeselect");
 		_rectTransform.SetParent(_originalParent, false);
 		SetTransparent(false);

@@ -29,6 +29,7 @@ public class DumpView : MonoBehaviour
 
 			if (IsInsideMask(prev))
 			{
+				Debug.Log($"Try to dump");
 				prev.SetState(CubeState.Dumping);
 				_towerManager.TryToDumpCube(prev, prev.RT.anchoredPosition, _mask);
 			}

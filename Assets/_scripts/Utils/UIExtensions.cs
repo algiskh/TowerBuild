@@ -11,6 +11,9 @@ public static class UIExtensions
 		return component.GetComponentInParent<Canvas>();
 	}
 
+	/// <summary>
+	/// Returns pivot of the RectTransform in the coordinate system of another RectTransform.
+	/// </summary>
 	public static Vector2 GetPositionInOtherRectTranform(
 		this RectTransform fromRect,
 		RectTransform toRect,
@@ -43,6 +46,33 @@ public static class UIExtensions
 		localPt.x += xOffset;
 		localPt.y += yOffset;
 		return localPt;
+	}
+
+	/// <summary>
+	/// Returns the anchoredPosition for any local point of rectFrom in the coordinate system of rectTo's parent.
+	/// </summary>
+	public static Vector2 GetAnchoredPositionInOtherRect(
+		this RectTransform rectFrom,
+		RectTransform rectTo,
+		Vector2? localPointInFrom = null)
+	{
+		if (rectFrom == null) return Vector2.zero;
+		if (rectTo == null) return Vector2.zero;
+
+		var canvas = rectFrom.GetComponentInParent<Canvas>();
+		if (canvas == null) return Vector2.zero;
+		var cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+
+
+		Vector2 point = localPointInFrom ?? rectFrom.rect.center;
+		Vector3 worldPoint = rectFrom.TransformPoint(point);
+
+		Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(cam, worldPoint);
+
+		RectTransformUtility.ScreenPointToLocalPointInRectangle(
+			rectTo, screenPoint, cam, out Vector2 anchoredPos);
+
+		return anchoredPos;
 	}
 
 	/// <summary>

@@ -26,7 +26,7 @@ public class ScrollPanel : MonoBehaviour
 	private void Awake()
 	{
 		_inputManager.CurrentCubeView.SkipLatestValueOnSubscribe().Subscribe(OnChangeSelection).AddTo(this);
-		_scrollRect.movementType = ScrollRect.MovementType.Unrestricted; // <-- ключевое условие!
+		_scrollRect.movementType = ScrollRect.MovementType.Unrestricted;
 	}
 
 	private void OnChangeSelection(CubeView view)
@@ -88,8 +88,6 @@ public class ScrollPanel : MonoBehaviour
 		_slots.Add(first);
 	}
 
-
-	[Sirenix.OdinInspector.Button]
 	private void FillScroll()
 	{
 		if (_slots.Count > 0)
